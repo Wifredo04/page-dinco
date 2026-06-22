@@ -1,0 +1,2172 @@
+/* ========================================
+   LANDING PAGE DINCO INMOBILIARIA & CONSTRUCTORA
+   Archivo: estilos.css
+   
+   PALETA DE COLORES CORPORATIVOS:
+   - Blanco Puro: #FFFFFF (fondos limpios, contenedores)
+   - Azul Eléctrico: #002EFF (botones, acentos principales)
+   - Cian Turquesa: #82FDEE (efectos hover, bordes activos)
+   
+   INSTRUCCIONES DE EDICIÓN:
+   Este archivo contiene comentarios línea por línea explicando
+   qué número cambiar para mover, redimensionar o reposicionar elementos.
+   ======================================== */
+
+/* ========================================
+   RESET GLOBAL Y CONFIGURACIÓN BASE
+   ======================================== */
+
+/* Elimina márgenes por defecto de navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* box-sizing: border-box permite que width y height incluyan padding y border */
+}
+
+/* Scroll suave en toda la página */
+html {
+    scroll-behavior: smooth;
+    /* Si deseas que el scroll sea instantáneo, cambia a: scroll-behavior: auto; */
+}
+
+/* Estilos base del cuerpo */
+body {
+    font-family: 'Poppins', sans-serif;
+    /* Font: La fuente principal es Poppins. Para cambiar a otra, busca la línea en index.html 
+       que dice: family=Poppins:wght... */
+    color: #333333;
+    /* color: Cambia #333333 por otro código hex para cambiar color de texto general */
+    line-height: 1.6;
+    /* line-height: Aumenta a 1.8 para más espacio entre líneas. Disminuye a 1.4 para más compacto */
+    background-color: #FFFFFF;
+    /* background-color: #FFFFFF es blanco. Usa #F5F5F5 para gris muy claro si prefieres */
+    overflow-x: hidden;
+    /* Evita scroll horizontal no deseado */
+}
+
+/* ========================================
+   1. BARRA DE NAVEGACIÓN LÍQUIDA (NAVBAR)
+   Scroll transparente → blanco con sombra
+   ======================================== */
+
+.navbar {
+    position: fixed;
+    /* position: fixed mantiene la navbar en la parte superior mientras scrolleas */
+    top: 0;
+    /* top: 0 coloca la navbar al inicio. Cambia a 10px para bajar 10 píxeles */
+    left: 0;
+    right: 0;
+    /* left: 0 y right: 0 hacen que ocupe todo el ancho */
+    z-index: 1000;
+    /* z-index: 1000 asegura que está encima de todo. Aumenta si algo aparece encima */
+    background: rgba(255, 255, 255, 0);
+    /* background: transparente al inicio. Cambia el 0 al final (opacidad) a 0.95 para hacerla más opaca desde el inicio */
+    backdrop-filter: blur(0px);
+    /* backdrop-filter: Crea efecto de cristal. Cambia blur(0px) a blur(10px) para efecto más fuerte */
+    transition: all 0.3s ease;
+    /* transition: Define velocidad de cambio. Cambia 0.3s a 0.5s para más lento, 0.1s para más rápido */
+    box-shadow: none;
+    /* box-shadow: Cambia a 0 2px 10px rgba(0,0,0,0.1) para agregar sombra desde el inicio */
+}
+
+/* Cuando se scrollea, la navbar cambia de transparente a blanca */
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    /* background: Opacidad 0.98 para casi completamente blanca */
+    backdrop-filter: blur(10px);
+    /* backdrop-filter: Efecto de vidrio esmerilado */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    /* box-shadow: Sombra para separar de contenido abajo. Aumenta 20px a 30px para sombra más grande */
+}
+
+/* Contenedor de la navbar - controla ancho y padding */
+.navbar-contenedor {
+    max-width: 1400px;
+    /* max-width: Ancho máximo. Cambia 1400px a 1200px para más estrecho, 1600px para más ancho */
+    margin: 0 auto;
+    /* margin: 0 auto centra el contenedor */
+    padding: 0 30px;
+    /* padding: 30px es el espacio horizontal. Cambia a 20px para menos margen, 50px para más */
+    display: flex;
+    /* display: flex activa flexbox para alinear elementos horizontalmente */
+    align-items: center;
+    /* align-items: center alinea verticalmente en el centro */
+    justify-content: space-between;
+    /* justify-content: space-between distribuye elementos: logo-izquierda, enlaces-centro, botón-derecha */
+    height: 70px;
+    /* height: 70px es la altura de la navbar. Cambia a 60px para más compacta, 80px para más grande */
+}
+
+/* Logo de DINCO a la izquierda */
+.navbar-logo h1 {
+    font-size: 24px;
+    /* font-size: 24px es el tamaño del logo. Cambia a 20px para más pequeño, 30px para más grande */
+    font-weight: 800;
+    /* font-weight: 800 es muy bold. Cambia a 700 para menos bold, 900 para más */
+    color: #002EFF;
+    /* color: #002EFF es azul eléctrico. Cambia a #FFFFFF para blanco, #000000 para negro */
+    letter-spacing: -1px;
+    /* letter-spacing: -1px comprime letras. Cambia a 1px para expandir */
+}
+
+/* Enlaces de navegación en el centro */
+.navbar-enlaces {
+    display: flex;
+    /* display: flex alinea los enlaces horizontalmente */
+    gap: 40px;
+    /* gap: 40px es el espacio entre enlaces. Cambia a 20px para más juntos, 60px para más separados */
+    list-style: none;
+    /* list-style: none quita los puntos por defecto de listas */
+}
+
+.navbar-enlaces a {
+    color: #333333;
+    /* color: #333333 gris oscuro. Cambia a #002EFF para azul, #FFFFFF para blanco */
+    text-decoration: none;
+    /* text-decoration: none quita subrayado */
+    font-weight: 600;
+    /* font-weight: 600 es semi-bold. Cambia a 400 para normal, 700 para más bold */
+    font-size: 14px;
+    /* font-size: 14px es tamaño del texto. Cambia a 12px para más pequeño, 16px para más grande */
+    transition: color 0.3s ease;
+    /* transition: color cambia suavemente. Modifica 0.3s para más/menos rápido */
+}
+
+/* Efecto hover en enlaces */
+.navbar-enlaces a:hover {
+    color: #002EFF;
+    /* color: #002EFF cambia a azul. Prueba #82FDEE para cian turquesa */
+}
+
+/* Botón de contacto directo en la derecha */
+.navbar-btn-contacto {
+    background: linear-gradient(135deg, #002EFF 0%, #0020CC 100%);
+    /* background: Gradiente azul. Cambia los colores hex para otros degradados */
+    color: #FFFFFF;
+    /* color: #FFFFFF es blanco */
+    border: none;
+    /* border: none quita borde. Cambia a 2px solid #002EFF para agregar borde */
+    padding: 12px 24px;
+    /* padding: 12px arriba/abajo, 24px izquierda/derecha. Cambia para cambiar tamaño del botón */
+    border-radius: 8px;
+    /* border-radius: 8px redondea esquinas. Cambia a 4px para menos redondeado, 20px para muy redondeado */
+    font-weight: 700;
+    /* font-weight: 700 es bold */
+    cursor: pointer;
+    /* cursor: pointer muestra mano al pasar mouse */
+    transition: all 0.3s ease;
+    /* transition: Velocidad de cambios. Cambia 0.3s a 0.5s para más lento */
+    font-size: 14px;
+    /* font-size: 14px tamaño del texto. Cambia a 12px o 16px */
+}
+
+/* Efecto hover en botón */
+.navbar-btn-contacto:hover {
+    box-shadow: 0 8px 20px rgba(0, 46, 255, 0.4);
+    /* box-shadow: Sombra azul. Cambia rgba(0, 46, 255, 0.4) para otro color */
+    transform: translateY(-2px);
+    /* transform: translateY(-2px) sube el botón 2px. Cambia a -3px para más efecto */
+}
+
+/* ========================================
+   2. SECCIÓN HERO - ULTRA LUJO CARIBEÑO
+   ======================================== */
+
+.hero {
+    position: relative;
+    /* position: relative permite posicionar elementos dentro */
+    width: 100%;
+    /* width: 100% ocupa todo el ancho */
+    height: 100vh;
+    /* height: 100vh ocupa toda la altura de pantalla. Cambia a 600px para menos alto */
+    overflow: hidden;
+    /* overflow: hidden corta contenido que sobresale */
+    margin-top: 70px;
+    /* margin-top: 70px empuja hacia abajo (altura de navbar). Cambia según altura navbar */
+}
+
+/* Fondo dinámico que cambia según zona */
+.hero-fondo {
+    position: absolute;
+    /* position: absolute posiciona dentro del contenedor padre */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    /* background-size: cover llena toda el área. Cambia a contain para ver toda la imagen */
+    background-position: center;
+    /* background-position: center centra la imagen. Cambia a bottom, top, left, right */
+    transition: background-image 0.8s ease;
+    /* transition: 0.8s es velocidad de cambio entre imágenes. Cambia a 1.5s para más lento */
+}
+
+/* Overlay oscuro para legibilidad de texto */
+.hero-overlay {
+    position: absolute;
+    /* position: absolute se posiciona sobre el fondo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    /* background: rgba(0, 0, 0, 0.4) negro con 40% opacidad. Cambia 0.4 a 0.2 para más claro, 0.6 para más oscuro */
+    z-index: 1;
+    /* z-index: 1 asegura que está sobre el fondo pero bajo el contenido */
+}
+
+/* Contenido de texto en el hero */
+.hero-contenido {
+    position: absolute;
+    /* position: absolute posiciona en centro */
+    top: 50%;
+    left: 50%;
+    /* top: 50% y left: 50% coloca en centro, luego se centra con transform */
+    transform: translate(-50%, -50%);
+    /* transform: translate(-50%, -50%) centra perfectamente */
+    text-align: center;
+    /* text-align: center centra el texto */
+    z-index: 2;
+    /* z-index: 2 asegura que está arriba del overlay */
+    color: white;
+    /* color: white texto blanco */
+}
+
+/* Título principal del hero */
+.hero-titulo {
+    font-family: 'Playfair Display', serif;
+    /* font-family: Serif elegante para títulos. Mantén o cambia en index.html */
+    font-size: 64px;
+    /* font-size: 64px es grande. En móvil será 36px automáticamente (revisar media queries) */
+    font-weight: 800;
+    /* font-weight: 800 muy bold */
+    margin-bottom: 20px;
+    /* margin-bottom: 20px espacio debajo. Cambia a 10px para más juntos, 30px para más separado */
+    line-height: 1.2;
+    /* line-height: 1.2 controla espacio entre líneas de párrafo */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    /* text-shadow: Sombra de texto. Cambia rgba(0,0,0,0.5) para otro color/opacidad */
+    animation: fadeInDown 0.8s ease;
+    /* animation: Entrada suave. Busca fadeInDown más abajo en este archivo */
+}
+
+/* Subtítulo del hero */
+.hero-subtitulo {
+    font-size: 20px;
+    /* font-size: 20px tamaño normal. Cambia a 16px para más pequeño, 24px para más grande */
+    font-weight: 300;
+    /* font-weight: 300 es ligero */
+    margin-bottom: 30px;
+    /* margin-bottom: 30px espacio debajo del subtítulo */
+    max-width: 600px;
+    /* max-width: 600px límita ancho. Cambia a 500px para más estrecho, 700px para más ancho */
+    margin-left: auto;
+    margin-right: auto;
+    /* margin-left/right: auto centra cuando hay max-width */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    /* text-shadow: Sombra más suave que el título */
+    animation: fadeInUp 0.8s ease 0.2s both;
+    /* animation: Entra después de 0.2s. Cambia 0.2s para entrar más/menos rápido */
+}
+
+/* Botón CTA en el hero */
+.hero-btn-cta {
+    background: #002EFF;
+    /* background: #002EFF azul eléctrico. Cambia a #82FDEE para cian, #FFFFFF para blanco */
+    color: white;
+    /* color: white texto blanco. Cambia a #000000 si el fondo es claro */
+    border: 2px solid transparent;
+    /* border: 2px solid transparent sin borde ahora. Cambia a 2px solid #82FDEE para borde cian */
+    padding: 16px 40px;
+    /* padding: 16px arriba/abajo, 40px izquierda/derecha */
+    font-size: 16px;
+    /* font-size: 16px tamaño de texto */
+    font-weight: 700;
+    /* font-weight: 700 bold */
+    border-radius: 8px;
+    /* border-radius: 8px esquinas redondeadas */
+    cursor: pointer;
+    /* cursor: pointer muestra mano */
+    transition: all 0.3s ease;
+    /* transition: Velocidad de cambios */
+    animation: fadeInUp 0.8s ease 0.4s both;
+    /* animation: Entra después de 0.4s */
+}
+
+/* Hover del botón CTA */
+.hero-btn-cta:hover {
+    background: #0020CC;
+    /* background: Azul más oscuro. Prueba #82FDEE para cian */
+    transform: scale(1.05);
+    /* transform: scale(1.05) agrandarse 5%. Cambia a 1.1 para 10%, 1.02 para 2% */
+    box-shadow: 0 10px 30px rgba(0, 46, 255, 0.5);
+    /* box-shadow: Sombra azul. Cambia el color rgba según lo que uses */
+}
+
+/* Puntos indicadores del carrusel */
+.hero-dots {
+    position: absolute;
+    /* position: absolute posiciona en relación al hero */
+    bottom: 30px;
+    /* bottom: 30px 30 píxeles desde abajo. Cambia a 50px para más bajo, 10px para más arriba */
+    left: 50%;
+    /* left: 50% centra horizontalmente */
+    transform: translateX(-50%);
+    /* transform: translateX(-50%) completa el centrado */
+    display: flex;
+    /* display: flex alinea puntos horizontalmente */
+    gap: 12px;
+    /* gap: 12px espacio entre puntos. Cambia a 8px para juntos, 16px para separados */
+    z-index: 10;
+    /* z-index: 10 encima de todo */
+}
+
+/* Cada punto del carrusel */
+.dot {
+    width: 12px;
+    /* width: 12px tamaño. Cambia a 10px para más pequeño, 14px para más grande */
+    height: 12px;
+    /* height: 12px tamaño */
+    border-radius: 50%;
+    /* border-radius: 50% hace círculo */
+    background: rgba(255, 255, 255, 0.5);
+    /* background: Blanco semitransparente. Cambia opacidad (0.5) a 0.3 para más transparente */
+    cursor: pointer;
+    /* cursor: pointer muestra mano */
+    transition: all 0.3s ease;
+    /* transition: Cambios suaves */
+}
+
+/* Punto activo del carrusel */
+.dot.activo {
+    background: #82FDEE;
+    /* background: #82FDEE cian turquesa. Cambia a #FFFFFF para blanco */
+    width: 24px;
+    /* width: 24px se expande el punto activo. Mantén o cambia a 20px, 28px */
+    border-radius: 6px;
+    /* border-radius: 6px se vuelve más rectangular */
+}
+
+/* ========================================
+   3. BADGE DE URGENCIA FLOTANTE
+   Punto rojo parpadeante
+   ======================================== */
+
+.badge-urgencia {
+    position: fixed;
+    /* position: fixed flota en la pantalla */
+    top: 120px;
+    /* top: 120px posición desde arriba. Cambia a 100px, 150px, etc. */
+    right: 30px;
+    /* right: 30px desde la derecha. Cambia a 20px para más cerca, 50px para más lejos */
+    background: white;
+    /* background: white fondo blanco */
+    padding: 12px 16px;
+    /* padding: 12px arriba/abajo, 16px izquierda/derecha */
+    border-radius: 20px;
+    /* border-radius: 20px muy redondeado como píldora */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    /* box-shadow: Sombra. Cambia 15px a 25px para más sombra */
+    display: flex;
+    /* display: flex alinea horizontalmente */
+    align-items: center;
+    /* align-items: center alinea verticalmente */
+    gap: 8px;
+    /* gap: 8px espacio entre punto y texto */
+    font-size: 13px;
+    /* font-size: 13px tamaño de texto pequeño */
+    font-weight: 600;
+    /* font-weight: 600 semi-bold */
+    z-index: 999;
+    /* z-index: 999 encima de casi todo */
+    animation: slideInRight 0.6s ease;
+    /* animation: Entra desde la derecha */
+}
+
+/* Punto rojo parpadeante */
+.badge-punto-rojo {
+    width: 8px;
+    /* width: 8px tamaño. Cambia a 6px para más pequeño, 10px para más grande */
+    height: 8px;
+    /* height: 8px tamaño */
+    background: #FF2D2D;
+    /* background: #FF2D2D rojo brillante. Cambia a #FF6B6B para más suave */
+    border-radius: 50%;
+    /* border-radius: 50% círculo perfecto */
+    animation: parpadear 1s infinite;
+    /* animation: parpadear 1s es velocidad. Cambia a 0.7s para más rápido, 1.5s para más lento */
+}
+
+/* Texto del badge */
+.badge-texto {
+    color: #333333;
+    /* color: #333333 gris oscuro */
+    white-space: nowrap;
+    /* white-space: nowrap evita que texto baje a línea siguiente */
+}
+
+/* Animación de parpadeo */
+@keyframes parpadear {
+    0%, 100% {
+        opacity: 1;
+        /* opacity: 1 completamente visible */
+    }
+    50% {
+        opacity: 0.3;
+        /* opacity: 0.3 casi invisible */
+    }
+}
+
+/* ========================================
+   4. SECCIÓN BUSCADOR - FILTROS INTELIGENTES
+   ======================================== */
+
+.buscador-seccion {
+    background: linear-gradient(135deg, #F0F4FF 0%, #F5FFFF 100%);
+    /* background: Gradiente azul a cian. Cambia colores hex para otros gradientes */
+    padding: 60px 30px;
+    /* padding: 60px arriba/abajo, 30px izquierda/derecha. Cambia para espaciado diferente */
+    margin-top: -100px;
+    /* margin-top: -100px sube hacia el hero. Cambia a 0 para sin superposición */
+}
+
+/* Contenedor del buscador */
+.buscador-contenedor {
+    max-width: 1200px;
+    /* max-width: 1200px ancho máximo. Cambia a 1000px para más estrecho, 1400px para más ancho */
+    margin: 0 auto;
+    /* margin: 0 auto centra */
+}
+
+/* Título del buscador */
+.buscador-titulo {
+    font-size: 28px;
+    /* font-size: 28px tamaño. Cambia a 24px o 32px */
+    font-weight: 700;
+    /* font-weight: 700 bold */
+    color: #002EFF;
+    /* color: #002EFF azul eléctrico */
+    margin-bottom: 30px;
+    /* margin-bottom: 30px espacio debajo */
+    text-align: center;
+    /* text-align: center centra el título */
+}
+
+/* Fila de filtros principales */
+.buscador-filtros {
+    display: grid;
+    /* display: grid para disponer en cuadrícula */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* grid-template-columns: 4 columnas responsivas. Cambia 200px para ancho mínimo de columna */
+    gap: 20px;
+    /* gap: 20px espacio entre elementos. Cambia a 15px para más juntos, 25px para más separados */
+    margin-bottom: 40px;
+    /* margin-bottom: 40px espacio abajo */
+}
+
+/* Cada filtro individual */
+.buscador-filtro {
+    display: flex;
+    /* display: flex para alinear label y select */
+    flex-direction: column;
+    /* flex-direction: column apila label arriba del select */
+}
+
+/* Label de filtros */
+.buscador-filtro label {
+    font-weight: 600;
+    /* font-weight: 600 semi-bold */
+    margin-bottom: 8px;
+    /* margin-bottom: 8px espacio debajo del label */
+    color: #333333;
+    /* color: #333333 gris oscuro */
+    font-size: 14px;
+    /* font-size: 14px pequeño */
+}
+
+/* Select y inputs */
+.buscador-filtro select,
+.buscador-filtro input {
+    padding: 12px;
+    /* padding: 12px espacio interno. Cambia a 10px para más compacto, 14px para más suelto */
+    border: 2px solid #82FDEE;
+    /* border: 2px solid #82FDEE borde cian. Cambia a #002EFF para azul, #CCCCCC para gris */
+    border-radius: 6px;
+    /* border-radius: 6px esquinas ligeramente redondeadas */
+    background: white;
+    /* background: white fondo blanco */
+    color: #333333;
+    /* color: #333333 gris oscuro */
+    font-family: 'Poppins', sans-serif;
+    /* font-family: Misma fuente que el resto */
+    cursor: pointer;
+    /* cursor: pointer muestra mano */
+    transition: all 0.3s ease;
+    /* transition: Cambios suaves */
+}
+
+/* Focus en inputs - cuando clickeas */
+.buscador-filtro select:focus,
+.buscador-filtro input:focus {
+    outline: none;
+    /* outline: none quita borde por defecto */
+    border-color: #002EFF;
+    /* border-color: #002EFF cambia borde a azul */
+    box-shadow: 0 0 0 3px rgba(0, 46, 255, 0.1);
+    /* box-shadow: Aura azul alrededor */
+}
+
+/* Botón de búsqueda */
+.buscador-btn {
+    background: #002EFF;
+    /* background: #002EFF azul eléctrico */
+    color: white;
+    /* color: white texto blanco */
+    border: none;
+    /* border: none sin borde */
+    padding: 12px 24px;
+    /* padding: 12px arriba/abajo, 24px izquierda/derecha */
+    border-radius: 6px;
+    /* border-radius: 6px esquinas */
+    font-weight: 700;
+    /* font-weight: 700 bold */
+    cursor: pointer;
+    /* cursor: pointer muestra mano */
+    transition: all 0.3s ease;
+    /* transition: Cambios suaves */
+    align-self: flex-end;
+    /* align-self: flex-end posiciona en fila abajo */
+}
+
+/* Hover del botón de búsqueda */
+.buscador-btn:hover {
+    background: #0020CC;
+    /* background: Azul más oscuro */
+    transform: translateY(-2px);
+    /* transform: Sube 2 píxeles */
+    box-shadow: 0 8px 20px rgba(0, 46, 255, 0.3);
+    /* box-shadow: Sombra azul */
+}
+
+/* Sección de provincias */
+.buscador-provincias-contenedor {
+    margin-top: 30px;
+    /* margin-top: 30px espacio arriba */
+    padding-top: 30px;
+    /* padding-top: 30px espacio interno arriba */
+    border-top: 2px solid rgba(0, 46, 255, 0.1);
+    /* border-top: Línea divisoria. Cambia opacidad para más/menos visible */
+}
+
+/* Título de provincias */
+.buscador-provincias-titulo {
+    font-weight: 600;
+    /* font-weight: 600 semi-bold */
+    margin-bottom: 15px;
+    /* margin-bottom: 15px espacio debajo */
+    color: #333333;
+    /* color: #333333 gris oscuro */
+    font-size: 14px;
+    /* font-size: 14px pequeño */
+}
+
+/* Contenedor de scroll horizontal */
+.buscador-provincias-scroll {
+    display: flex;
+    /* display: flex alinea horizontalmente */
+    gap: 12px;
+    /* gap: 12px espacio entre botones */
+    overflow-x: auto;
+    /* overflow-x: auto activa scroll horizontal */
+    padding-bottom: 10px;
+    /* padding-bottom: 10px espacio abajo para barra de scroll */
+    scroll-behavior: smooth;
+    /* scroll-behavior: smooth scroll suave */
+    /* IMPORTANTE: En móviles, este scroll es táctil automáticamente */
+}
+
+/* Cada botón de provincia */
+.provincia-btn {
+    background: white;
+    /* background: white fondo blanco */
+    color: #333333;
+    /* color: #333333 gris oscuro */
+    border: 2px solid #82FDEE;
+    /* border: 2px solid #82FDEE borde cian */
+    padding: 10px 20px;
+    /* padding: 10px arriba/abajo, 20px izquierda/derecha */
+    border-radius: 20px;
+    /* border-radius: 20px muy redondeado como píldora */
+    white-space: nowrap;
+    /* white-space: nowrap evita que texto baje */
+    cursor: pointer;
+    /* cursor: pointer muestra mano */
+    transition: all 0.3s ease;
+    /* transition: Cambios suaves */
+    font-weight: 600;
+    /* font-weight: 600 semi-bold */
+    flex-shrink: 0;
+    /* flex-shrink: 0 evita que se comprima */
+}
+
+/* Hover en provincia */
+.provincia-btn:hover {
+    background: #82FDEE;
+    /* background: #82FDEE cian turquesa */
+    color: #002EFF;
+    /* color: #002EFF azul eléctrico */
+    transform: scale(1.05);
+    /* transform: scale(1.05) agrandarse 5% */
+}
+
+/* Provincia activa */
+.provincia-btn.activo {
+    background: #002EFF;
+    /* background: #002EFF azul eléctrico */
+    color: white;
+    /* color: white texto blanco */
+    border-color: #002EFF;
+    /* border-color: #002EFF borde azul */
+}
+
+/* ========================================
+   5. CATÁLOGO DE TARJETAS VIVAS (3 MUESTRAS)
+   Tarjetas con efectos hover
+   ======================================== */
+
+.catalogo-seccion {
+    padding: 80px 30px;
+    /* padding: 80px arriba/abajo, 30px izquierda/derecha. Cambia para espaciado diferente */
+    background: #FFFFFF;
+    /* background: #FFFFFF blanco */
+}
+
+/* Título de la sección */
+.seccion-titulo {
+    font-size: 36px;
+    /* font-size: 36px grande. Cambia a 32px para menos, 40px para más */
+    font-weight: 800;
+    /* font-weight: 800 muy bold */
+    color: #002EFF;
+    /* color: #002EFF azul eléctrico */
+    text-align: center;
+    /* text-align: center centra */
+    margin-bottom: 50px;
+    /* margin-bottom: 50px espacio debajo. Cambia a 40px o 60px */
+}
+
+/* Grid de tarjetas */
+.catalogo-grid {
+    max-width: 1300px;
+    /* max-width: 1300px ancho máximo. Cambia a 1200px o 1400px */
+    margin: 0 auto;
+    /* margin: 0 auto centra */
+    display: grid;
+    /* display: grid dispone en cuadrícula */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    /* grid-template-columns: 3 columnas responsivas. Cambia 350px para ancho mínimo */
+    gap: 30px;
+    /* gap: 30px espacio entre tarjetas. Cambia a 20px para menos, 40px para más */
+}
+
+/* Tarjeta de propiedad */
+.tarjeta-propiedad {
+    background: white;
+    /* background: white fondo blanco */
+    border-radius: 12px;
+    /* border-radius: 12px esquinas redondeadas. Cambia a 8px para menos redondeado */
+    overflow: hidden;
+    /* overflow: hidden corta contenido que sobresale */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    /* box-shadow: Sombra suave. Cambia 15px a 25px para más oscura */
+    transition: all 0.4s ease;
+    /* transition: 0.4s velocidad de cambios. Cambia a 0.3s o 0.6s */
+}
+
+/* Hover en tarjeta - efecto elevación */
+.tarjeta-propiedad:hover {
+    transform: translateY(-8px);
+    /* transform: translateY(-8px) sube 8 píxeles. Cambia a -10px o -5px */
+    box-shadow: 0 20px 40px rgba(0, 46, 255, 0.15);
+    /* box-shadow: Sombra azul mayor. Cambia opacidad (0.15) para más/menos visible */
+}
+
+/* Contenedor de imagen */
+.tarjeta-imagen-contenedor {
+    position: relative;
+    /* position: relative permite posicionar elementos dentro */
+    width: 100%;
+    /* width: 100% ocupa todo el ancho */
+    height: 250px;
+    /* height: 250px alto de imagen. Cambia a 200px para menos alto, 300px para más */
+    overflow: hidden;
+    /* overflow: hidden corta la imagen que sobresale */
+}
+
+/* Imagen de la tarjeta */
+.tarjeta-imagen {
+    width: 100%;
+    /* width: 100% ocupa todo el ancho */
+    height: 100%;
+    /* height: 100% ocupa todo el alto */
+    object-fit: cover;
+    /* object-fit: cover llena el espacio sin deformar */
+    transition: transform 0.4s ease;
+    /* transition: 0.4s cambio suave */
+}
+
+/* Zoom en hover */
+.tarjeta-propiedad:hover .tarjeta-imagen {
+    transform: scale(1.1);
+    /* transform: scale(1.1) agrandarse 10%. Cambia a 1.15 para más zoom */
+}
+
+/* Badge de oferta en la esquina */
+.tarjeta-badge {
+    position: absolute;
+    /* position: absolute posiciona en esquina */
+    top: 15px;
+    /* top: 15px 15 píxeles desde arriba */
+    right: 15px;
+    /* right: 15px 15 píxeles desde la derecha */
+    background: #FF2D2D;
+    /* background: #FF2D2D rojo para oferta */
+    color: white;
+    /* color: white texto blanco */
+    padding: 8px 12px;
+    /* padding: 8px arriba/abajo, 12px izquierda/derecha */
+    border-radius: 6px;
+    /* border-radius: 6px esquinas */
+    font-size: 12px;
+    /* font-size: 12px pequeño */
+    font-weight: 700;
+    /* font-weight: 700 bold */
+}
+
+/* Contenido de la tarjeta */
+.tarjeta-contenido {
+    padding: 25px;
+    /* padding: 25px espacio interno. Cambia a 20px para menos, 30px para más */
+}
+
+/* Ubicación en tarjeta */
+.tarjeta-ubicacion {
+    color: #666666;
+    /* color: #666666 gris medio */
+    font-size: 12px;
+    /* font-size: 12px pequeño */
+    font-weight: 600;
+    /* font-weight: 600 semi-bold */
+    margin-bottom: 8px;
+    /* margin-bottom: 8px espacio debajo */
+}
+
+/* Título de tarjeta */
+.tarjeta-titulo {
+    font-size: 18px;
+    /* font-size: 18px normal. Cambia a 16px o 20px */
+    font-weight: 700;
+    /* font-weight: 700 bold */
+    color: #002EFF;
+    /* color: #002EFF azul eléctrico */
+    margin-bottom: 12px;
+    /* margin-bottom: 12px espacio debajo */
+}
+
+/* Descripción de tarjeta */
+.tarjeta-descripcion {
+    color: #666666;
+    /* color: #666666 gris medio */
+    font-size: 14px;
+    /* font-size: 14px normal */
+    margin-bottom: 15px;
+    /* margin-bottom: 15px espacio debajo */
+    line-height: 1.5;
+    /* line-height: 1.5 espaciado entre líneas */
+}
+
+/* Metadatos (habitaciones, baños, etc.) */
+.tarjeta-metadatos {
+    display: flex;
+    /* display: flex alinea horizontalmente */
+    flex-wrap: wrap;
+    /* flex-wrap: wrap baja a línea siguiente si no cabe */
+    gap: 12px;
+    /* gap: 12px espacio entre elementos */
+    margin-bottom: 15px;
+    /* margin-bottom: 15px espacio debajo */
+    padding-bottom: 15px;
+    /* padding-bottom: 15px espacio debajo */
+    border-bottom: 1px solid #EEEEEE;
+    /* border-bottom: Línea divisoria. Cambia color para más/menos visible */
+}
+
+.tarjeta-metadatos span {
+    font-size: 12px;
+    /* font-size: 12px pequeño */
+    color: #666666;
+    /* color: #666666 gris medio */
+    font-weight: 600;
+    /* font-weight: 600 semi-bold */
+}
+
+/* Precio en tarjeta */
+.tarjeta-precio {
+    display: flex;
+    /* display: flex alinea horizontalmente */
+    align-items: center;
+    /* align-items: center alinea verticalmente */
+    gap: 12px;
+    /* gap: 12px espacio entre precios */
+    margin-bottom: 20px;
+    /* margin-bottom: 20px espacio debajo */
+}
+
+/* Precio anterior (tachado) */
+.precio-anterior {
+    color: #999999;
+    /* color: #999999 gris claro */
+    text-decoration: line-through;
+    /* text-decoration: line-through tacha el precio */
+    font-size: 14px;
+    /* font-size: 14px pequeño */
+}
+
+/* Precio actual (destaca) */
+.precio-actual {
+    color: #002EFF;
+    /* color: #002EFF azul eléctrico */
+    font-size: 24px;
+    /* font-size: 24px grande para destacar */
+    font-weight: 800;
+    /* font-weight: 800 muy bold */
+}
+
+/* Botón de WhatsApp */
+.tarjeta-btn-whatsapp {
+    width: 100%;
+    /* width: 100% ocupa todo el ancho */
+    background: #25D366;
+    /* background: #25D366 verde de WhatsApp */
+    color: white;
+    /* color: white texto blanco */
+    border: none;
+    /* border: none sin borde */
+    padding: 14px;
+    /* padding: 14px espacio interno */
+    border-radius: 8px;
+    /* border-radius: 8px esquinas redondeadas */
+    font-weight: 700;
+    /* font-weight: 700 bold */
+    font-size: 15px;
+    /* font-size: 15px tamaño de texto */
+    cursor: pointer;
+    /* cursor: pointer muestra mano */
+    transition: all 0.3s ease;
+    /* transition: Cambios suaves */
+}
+
+/* Hover en botón de WhatsApp */
+.tarjeta-btn-whatsapp:hover {
+    background: #1FAE5D;
+    /* background: Verde más oscuro */
+    transform: scale(1.02);
+    /* transform: scale(1.02) agrandarse 2% */
+    box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
+    /* box-shadow: Sombra verde */
+}
+
+/* Botón de ver propiedad */
+.tarjeta-btn-detalles {
+    width: 100%;
+    margin-bottom: 10px;
+    background: #F0F4FF;
+    color: #002EFF;
+    border: 1px solid #C7D6FF;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tarjeta-btn-detalles:hover {
+    background: #E3ECFF;
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   6. SECCIÓN DE DETALLE DE PROPIEDAD
+   ======================================== */
+
+.detalle-propiedad-seccion {
+    background: linear-gradient(180deg, #F9FBFF 0%, #FFFFFF 100%);
+    padding: 90px 30px;
+}
+
+.detalle-propiedad-contenedor {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.detalle-layout {
+    display: grid;
+    grid-template-columns: 2.2fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.detalle-main-panel {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 20px;
+}
+
+.galeria-panel,
+.detalle-panel,
+.noticias-sidebar,
+.detalle-extra-card {
+    background: #FFFFFF;
+    border-radius: 18px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.galeria-panel {
+    position: relative;
+}
+
+.galeria-principal {
+    position: relative;
+    height: 520px;
+    background: #eef4ff;
+}
+
+.galeria-principal img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.galeria-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    color: #002EFF;
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.galeria-control:hover {
+    background: white;
+}
+
+.galeria-control.prev {
+    left: 16px;
+}
+
+.galeria-control.next {
+    right: 16px;
+}
+
+.galeria-miniaturas {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    padding: 12px;
+}
+
+.galeria-miniaturas img {
+    width: 100%;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.galeria-miniaturas img.activo {
+    border-color: #002EFF;
+    transform: scale(1.03);
+}
+
+.detalle-panel {
+    padding: 32px;
+}
+
+.detalle-badges {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.detalle-badge {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.detalle-badge-venta {
+    background: #EAF7EE;
+    color: #1F9D4A;
+}
+
+.detalle-badge-premium {
+    background: #EEF4FF;
+    color: #002EFF;
+}
+
+.detalle-panel h2 {
+    font-size: 32px;
+    color: #002EFF;
+    margin-bottom: 6px;
+}
+
+.detalle-ubicacion {
+    color: #666666;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.detalle-precio-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.detalle-precio-actual {
+    color: #002EFF;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.detalle-precio-anterior {
+    color: #999999;
+    text-decoration: line-through;
+    font-size: 16px;
+}
+
+.detalle-descripcion {
+    color: #555555;
+    line-height: 1.7;
+    font-size: 15px;
+    margin-bottom: 18px;
+}
+
+.detalle-metricas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.detalle-metricas div {
+    background: #F9FAFF;
+    padding: 14px 12px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.detalle-metricas span {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.detalle-metricas strong {
+    display: block;
+    color: #002EFF;
+    font-size: 18px;
+}
+
+.detalle-metricas small {
+    color: #666666;
+}
+
+.detalle-acciones {
+    display: flex;
+    gap: 10px;
+}
+
+.detalle-btn-contacto,
+.detalle-btn-whatsapp {
+    flex: 1;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.detalle-btn-contacto {
+    background: #002EFF;
+    color: white;
+}
+
+.detalle-btn-whatsapp {
+    background: #25D366;
+    color: white;
+}
+
+.detalle-btn-contacto:hover,
+.detalle-btn-whatsapp:hover {
+    transform: translateY(-2px);
+}
+
+.noticias-sidebar {
+    padding: 22px;
+    position: sticky;
+    top: 90px;
+}
+
+.noticias-sidebar-header p {
+    color: #002EFF;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+.noticias-sidebar-header h3 {
+    font-size: 22px;
+    color: #001A66;
+    margin-bottom: 18px;
+}
+
+.noticias-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.noticia-item {
+    display: flex;
+    gap: 12px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #eef0f7;
+}
+
+.noticia-item:last-child {
+    border-bottom: none;
+}
+
+.noticia-item img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.noticia-item h4 {
+    font-size: 13px;
+    color: #333333;
+    margin-bottom: 4px;
+    line-height: 1.4;
+}
+
+.noticia-item span {
+    font-size: 11px;
+    color: #777777;
+}
+
+.detalle-extra-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.detalle-extra-card {
+    padding: 28px;
+}
+
+.detalle-extra-card h3 {
+    color: #002EFF;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.detalle-extra-card p {
+    color: #555555;
+    line-height: 1.7;
+}
+
+.detalle-amenidades {
+    list-style: none;
+    margin-top: 14px;
+    display: grid;
+    gap: 8px;
+}
+
+.mapa-card iframe {
+    width: 100%;
+    height: 340px;
+    border: none;
+    border-radius: 12px;
+}
+
+/* ========================================
+   7. SECCIÓN DE BLOG
+   ======================================== */
+
+.blog-seccion {
+    background: #F5F8FF;
+    /* background: Azul muy claro. Cambia hex para otro color */
+    padding: 80px 30px;
+    /* padding: 80px arriba/abajo, 30px izquierda/derecha */
+}
+
+/* Grid de artículos del blog */
+.blog-grid {
+    max-width: 1200px;
+    /* max-width: 1200px ancho máximo */
+    margin: 0 auto;
+    /* margin: 0 auto centra */
+    display: grid;
+    /* display: grid dispone en cuadrícula */
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    /* grid-template-columns: Responsivo. Cambia 380px para ancho mínimo */
+    gap: 30px;
+    /* gap: 30px espacio entre tarjetas */
+}
+
+/* Tarjeta de blog */
+.blog-tarjeta {
+    background: white;
+    /* background: white fondo blanco */
+    border-radius: 12px;
+    /* border-radius: 12px esquinas redondeadas */
+    overflow: hidden;
+    /* overflow: hidden corta contenido sobresaliente */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    /* box-shadow: Sombra suave */
+    transition: all 0.4s ease;
+    /* transition: 0.4s cambios suaves */
+}
+
+/* Hover en tarjeta de blog */
+.blog-tarjeta:hover {
+    transform: translateY(-5px);
+    /* transform: translateY(-5px) sube 5 píxeles */
+    box-shadow: 0 15px 30px rgba(0, 46, 255, 0.12);
+    /* box-shadow: Sombra azul mayor */
+}
+
+/* Imagen del blog */
+.blog-imagen {
+    width: 100%;
+    /* width: 100% ocupa todo el ancho */
+    height: 220px;
+    /* height: 220px alto de imagen */
+    object-fit: cover;
+    /* object-fit: cover llena sin deformar */
+}
+
+/* Contenido del blog */
+.blog-contenido {
+    padding: 25px;
+    /* padding: 25px espacio interno */
+}
+
+/* Categoría del artículo */
+.blog-categoria {
+    display: inline-block;
+    /* display: inline-block para que ocupe poco espacio */
+    background: rgba(0, 46, 255, 0.1);
+    /* background: Azul muy claro para fondo */
+    color: #002EFF;
+    /* color: #002EFF azul eléctrico */
+    padding: 6px 12px;
+    /* padding: 6px arriba/abajo, 12px izquierda/derecha */
+    border-radius: 20px;
+    /* border-radius: 20px muy redondeado */
+    font-size: 12px;
+    /* font-size: 12px pequeño */
+    font-weight: 700;
+    /* font-weight: 700 bold */
+    margin-bottom: 12px;
+    /* margin-bottom: 12px espacio debajo */
+}
+
+/* Título del blog */
+.blog-titulo {
+    font-size: 18px;
+    /* font-size: 18px normal */
+    font-weight: 700;
+    /* font-weight: 700 bold */
+    color: #002EFF;
+    /* color: #002EFF azul eléctrico */
+    margin-bottom: 12px;
+    /* margin-bottom: 12px espacio debajo */
+    line-height: 1.4;
+    /* line-height: 1.4 espaciado entre líneas */
+}
+
+/* Extracto del blog */
+.blog-extracto {
+    color: #666666;
+    /* color: #666666 gris medio */
+    font-size: 14px;
+    /* font-size: 14px normal */
+    margin-bottom: 15px;
+    /* margin-bottom: 15px espacio debajo */
+    line-height: 1.6;
+    /* line-height: 1.6 espaciado entre líneas */
+}
+
+/* Metadata del blog */
+.blog-metadata {
+    display: flex;
+    /* display: flex alinea horizontalmente */
+    gap: 20px;
+    /* gap: 20px espacio entre elementos */
+    font-size: 12px;
+    /* font-size: 12px pequeño */
+    color: #999999;
+    /* color: #999999 gris */
+    margin-bottom: 15px;
+    /* margin-bottom: 15px espacio debajo */
+    padding-bottom: 15px;
+    /* padding-bottom: 15px espacio debajo */
+    border-bottom: 1px solid #EEEEEE;
+    /* border-bottom: Línea divisoria */
+}
+
+/* Botón Leer más */
+.blog-btn-leer {
+    display: inline-block;
+    /* display: inline-block para ocupar poco espacio */
+    color: #002EFF;
+    /* color: #002EFF azul eléctrico */
+    text-decoration: none;
+    /* text-decoration: none sin subrayado */
+    font-weight: 700;
+    /* font-weight: 700 bold */
+    font-size: 14px;
+    /* font-size: 14px pequeño */
+    transition: all 0.3s ease;
+    /* transition: Cambios suaves */
+}
+
+/* Hover en Leer más */
+.blog-btn-leer:hover {
+    color: #0020CC;
+    /* color: Azul más oscuro */
+    transform: translateX(5px);
+    /* transform: translateX(5px) se mueve 5px a la derecha */
+}
+
+/* ========================================
+   7. SECCIÓN DE NOSOTROS
+   ======================================== */
+
+.nosotros-seccion {
+    background: white;
+    /* background: white fondo blanco */
+    padding: 80px 30px;
+    /* padding: 80px arriba/abajo, 30px izquierda/derecha */
+}
+
+/* Contenedor de nosotros */
+.nosotros-contenedor {
+    max-width: 1200px;
+    /* max-width: 1200px ancho máximo */
+    margin: 0 auto;
+    /* margin: 0 auto centra */
+}
+
+/* Grid de beneficios */
+.beneficios-grid {
+    display: grid;
+    /* display: grid dispone en cuadrícula */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* grid-template-columns: 4 columnas responsivas */
+    gap: 30px;
+    /* gap: 30px espacio entre elementos */
+    margin-top: 40px;
+    /* margin-top: 40px espacio desde el título */
+}
+
+/* Tarjeta de beneficio */
+.beneficio-tarjeta {
+    text-align: center;
+    /* text-align: center centra el contenido */
+    padding: 30px;
+    /* padding: 30px espacio interno */
+    border-radius: 12px;
+    /* border-radius: 12px esquinas redondeadas */
+    background: #F9F9F9;
+    /* background: #F9F9F9 gris muy claro */
+    transition: all 0.3s ease;
+    /* transition: Cambios suaves */
+}
+
+/* Hover en beneficio */
+.beneficio-tarjeta:hover {
+    background: #F0F4FF;
+    /* background: Azul muy claro */
+    transform: translateY(-3px);
+    /* transform: translateY(-3px) sube 3 píxeles */
+}
+
+/* Icono de beneficio */
+.beneficio-icono {
+    font-size: 40px;
+    /* font-size: 40px grande */
+    margin-bottom: 15px;
+    /* margin-bottom: 15px espacio debajo */
+}
+
+.beneficio-tarjeta h3 {
+    font-size: 18px;
+    /* font-size: 18px normal */
+    font-weight: 700;
+    /* font-weight: 700 bold */
+    color: #002EFF;
+    /* color: #002EFF azul eléctrico */
+    margin-bottom: 10px;
+    /* margin-bottom: 10px espacio debajo */
+}
+
+.beneficio-tarjeta p {
+    color: #666666;
+    /* color: #666666 gris medio */
+    font-size: 14px;
+    /* font-size: 14px pequeño */
+    line-height: 1.6;
+    /* line-height: 1.6 espaciado entre líneas */
+}
+
+/* ========================================
+   8. SECCIÓN DE CONTACTO
+   ======================================== */
+
+.contacto-seccion {
+    background: linear-gradient(135deg, #F0F4FF 0%, #F5FFFF 100%);
+    /* background: Gradiente azul a cian */
+    padding: 80px 30px;
+    /* padding: 80px arriba/abajo, 30px izquierda/derecha */
+}
+
+/* Contenedor de contacto */
+.contacto-contenedor {
+    max-width: 1200px;
+    /* max-width: 1200px ancho máximo */
+    margin: 0 auto;
+    /* margin: 0 auto centra */
+}
+
+/* Grid de formulario e información */
+.contacto-grid {
+    display: grid;
+    /* display: grid dispone en cuadrícula */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    /* grid-template-columns: 2 columnas responsivas */
+    gap: 50px;
+    /* gap: 50px espacio entre columnas */
+    margin-top: 40px;
+    /* margin-top: 40px espacio desde el título */
+}
+
+/* Formulario de contacto */
+.contacto-formulario {
+    background: white;
+    /* background: white fondo blanco */
+    padding: 30px;
+    /* padding: 30px espacio interno */
+    border-radius: 12px;
+    /* border-radius: 12px esquinas redondeadas */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    /* box-shadow: Sombra suave */
+}
+
+/* Grupo de formulario (label + input) */
+.formulario-grupo {
+    display: flex;
+    /* display: flex apila verticalmente */
+    flex-direction: column;
+    /* flex-direction: column apila */
+    margin-bottom: 20px;
+    /* margin-bottom: 20px espacio debajo */
+}
+
+.formulario-grupo label {
+    font-weight: 600;
+    /* font-weight: 600 semi-bold */
+    margin-bottom: 8px;
+    /* margin-bottom: 8px espacio debajo del label */
+    color: #333333;
+    /* color: #333333 gris oscuro */
+    font-size: 14px;
+    /* font-size: 14px pequeño */
+}
+
+.formulario-grupo input,
+.formulario-grupo select,
+.formulario-grupo textarea {
+    padding: 12px;
+    /* padding: 12px espacio interno */
+    border: 2px solid #82FDEE;
+    /* border: 2px solid #82FDEE borde cian */
+    border-radius: 6px;
+    /* border-radius: 6px esquinas */
+    background: white;
+    /* background: white fondo blanco */
+    color: #333333;
+    /* color: #333333 gris oscuro */
+    font-family: 'Poppins', sans-serif;
+    /* font-family: Misma fuente */
+    font-size: 14px;
+    /* font-size: 14px pequeño */
+    transition: all 0.3s ease;
+    /* transition: Cambios suaves */
+}
+
+.formulario-grupo input:focus,
+.formulario-grupo select:focus,
+.formulario-grupo textarea:focus {
+    outline: none;
+    /* outline: none quita borde por defecto */
+    border-color: #002EFF;
+    /* border-color: #002EFF cambia a azul */
+    box-shadow: 0 0 0 3px rgba(0, 46, 255, 0.1);
+    /* box-shadow: Aura azul */
+}
+
+/* Botón de envío del formulario */
+.contacto-btn-enviar {
+    width: 100%;
+    /* width: 100% ocupa todo el ancho */
+    background: #002EFF;
+    /* background: #002EFF azul eléctrico */
+    color: white;
+    /* color: white texto blanco */
+    border: none;
+    /* border: none sin borde */
+    padding: 14px;
+    /* padding: 14px espacio interno */
+    border-radius: 6px;
+    /* border-radius: 6px esquinas */
+    font-weight: 700;
+    /* font-weight: 700 bold */
+    font-size: 15px;
+    /* font-size: 15px tamaño */
+    cursor: pointer;
+    /* cursor: pointer muestra mano */
+    transition: all 0.3s ease;
+    /* transition: Cambios suaves */
+}
+
+.contacto-btn-enviar:hover {
+    background: #0020CC;
+    /* background: Azul más oscuro */
+    transform: translateY(-2px);
+    /* transform: translateY(-2px) sube 2 píxeles */
+    box-shadow: 0 8px 20px rgba(0, 46, 255, 0.3);
+    /* box-shadow: Sombra azul */
+}
+
+/* Información de contacto */
+.contacto-info {
+    background: white;
+    /* background: white fondo blanco */
+    padding: 30px;
+    /* padding: 30px espacio interno */
+    border-radius: 12px;
+    /* border-radius: 12px esquinas redondeadas */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    /* box-shadow: Sombra suave */
+    height: fit-content;
+    /* height: fit-content se adapta al contenido */
+}
+
+.contacto-info h3 {
+    font-size: 20px;
+    /* font-size: 20px normal */
+    font-weight: 700;
+    /* font-weight: 700 bold */
+    color: #002EFF;
+    /* color: #002EFF azul eléctrico */
+    margin-bottom: 25px;
+    /* margin-bottom: 25px espacio debajo */
+}
+
+/* Método de contacto */
+.contacto-metodo {
+    display: flex;
+    /* display: flex alinea horizontalmente */
+    gap: 15px;
+    /* gap: 15px espacio entre icono e información */
+    margin-bottom: 20px;
+    /* margin-bottom: 20px espacio debajo */
+    padding-bottom: 20px;
+    /* padding-bottom: 20px espacio abajo */
+    border-bottom: 1px solid #EEEEEE;
+    /* border-bottom: Línea divisoria */
+}
+
+.contacto-metodo:last-child {
+    border-bottom: none;
+    /* border-bottom: none quita la línea del último elemento */
+}
+
+/* Icono de contacto */
+.contacto-icono {
+    font-size: 24px;
+    /* font-size: 24px tamaño */
+    flex-shrink: 0;
+    /* flex-shrink: 0 evita que se comprima */
+}
+
+.contacto-metodo p {
+    margin: 0;
+    /* margin: 0 sin margen */
+    font-size: 14px;
+    /* font-size: 14px pequeño */
+    line-height: 1.6;
+    /* line-height: 1.6 espaciado entre líneas */
+}
+
+.contacto-metodo strong {
+    color: #002EFF;
+    /* color: #002EFF azul eléctrico */
+    display: block;
+    /* display: block en su propia línea */
+    margin-bottom: 4px;
+    /* margin-bottom: 4px espacio debajo */
+}
+
+.contacto-metodo a {
+    color: #002EFF;
+    /* color: #002EFF azul eléctrico */
+    text-decoration: none;
+    /* text-decoration: none sin subrayado */
+    font-weight: 600;
+    /* font-weight: 600 semi-bold */
+}
+
+.contacto-metodo a:hover {
+    text-decoration: underline;
+    /* text-decoration: underline subraya al pasar mouse */
+}
+
+/* ========================================
+   9. PIE DE PÁGINA (FOOTER)
+   4 columnas de información
+   ======================================== */
+
+.footer {
+    background: #001A66;
+    /* background: #001A66 azul oscuro. Cambia hex para otro color */
+    color: #CCCCCC;
+    /* color: #CCCCCC gris claro para texto */
+    padding: 60px 30px 30px;
+    /* padding: 60px arriba, 30px lateral, 30px abajo */
+}
+
+/* Contenedor del footer */
+.footer-contenedor {
+    max-width: 1400px;
+    /* max-width: 1400px ancho máximo */
+    margin: 0 auto;
+    /* margin: 0 auto centra */
+    display: grid;
+    /* display: grid dispone en cuadrícula */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* grid-template-columns: 4 columnas responsivas */
+    gap: 40px;
+    /* gap: 40px espacio entre columnas */
+    margin-bottom: 40px;
+    /* margin-bottom: 40px espacio debajo */
+}
+
+/* Cada columna del footer */
+.footer-columna h4 {
+    color: #FFFFFF;
+    /* color: #FFFFFF blanco para títulos */
+    font-size: 16px;
+    /* font-size: 16px normal */
+    font-weight: 700;
+    /* font-weight: 700 bold */
+    margin-bottom: 15px;
+    /* margin-bottom: 15px espacio debajo */
+}
+
+.footer-columna p {
+    font-size: 13px;
+    /* font-size: 13px pequeño */
+    line-height: 1.8;
+    /* line-height: 1.8 espaciado entre líneas */
+    margin-bottom: 10px;
+    /* margin-bottom: 10px espacio debajo */
+}
+
+.footer-columna ul {
+    list-style: none;
+    /* list-style: none quita puntos */
+}
+
+.footer-columna li {
+    margin-bottom: 10px;
+    /* margin-bottom: 10px espacio entre elementos */
+}
+
+.footer-columna a {
+    color: #CCCCCC;
+    /* color: #CCCCCC gris claro */
+    text-decoration: none;
+    /* text-decoration: none sin subrayado */
+    transition: color 0.3s ease;
+    /* transition: Cambios suaves */
+    font-size: 13px;
+    /* font-size: 13px pequeño */
+}
+
+.footer-columna a:hover {
+    color: #82FDEE;
+    /* color: #82FDEE cian turquesa al pasar mouse */
+}
+
+/* Sellos de confianza en footer */
+.footer-sellos {
+    display: flex;
+    /* display: flex alinea horizontalmente */
+    flex-direction: column;
+    /* flex-direction: column apila verticalmente */
+    gap: 8px;
+    /* gap: 8px espacio entre elementos */
+    margin-top: 15px;
+    /* margin-top: 15px espacio desde arriba */
+    font-size: 12px;
+    /* font-size: 12px pequeño */
+    color: #82FDEE;
+    /* color: #82FDEE cian turquesa para destacar */
+}
+
+/* Redes sociales en footer */
+.footer-redes {
+    display: flex;
+    /* display: flex alinea horizontalmente */
+    gap: 12px;
+    /* gap: 12px espacio entre iconos */
+    margin-top: 15px;
+    /* margin-top: 15px espacio desde arriba */
+}
+
+.footer-redes a {
+    display: inline-flex;
+    /* display: inline-flex para que sean pequeños círculos */
+    align-items: center;
+    /* align-items: center centra verticalmente */
+    justify-content: center;
+    /* justify-content: center centra horizontalmente */
+    width: 36px;
+    /* width: 36px tamaño del círculo */
+    height: 36px;
+    /* height: 36px tamaño del círculo */
+    background: rgba(130, 253, 238, 0.1);
+    /* background: Cian muy transparente */
+    border-radius: 50%;
+    /* border-radius: 50% círculo perfecto */
+    color: #82FDEE;
+    /* color: #82FDEE cian turquesa */
+    font-weight: 700;
+    /* font-weight: 700 bold */
+    transition: all 0.3s ease;
+    /* transition: Cambios suaves */
+}
+
+.footer-redes a:hover {
+    background: #82FDEE;
+    /* background: Cian turquesa opaco */
+    color: #001A66;
+    /* color: Azul oscuro para contraste */
+    transform: scale(1.1);
+    /* transform: scale(1.1) agrandarse 10% */
+}
+
+/* Línea divisoria en footer */
+.footer-divisor {
+    max-width: 1400px;
+    /* max-width: 1400px ancho máximo */
+    margin: 0 auto;
+    /* margin: 0 auto centra */
+    height: 1px;
+    /* height: 1px línea fina */
+    background: rgba(130, 253, 238, 0.2);
+    /* background: Cian muy transparente */
+    margin-bottom: 30px;
+    /* margin-bottom: 30px espacio debajo */
+}
+
+/* Copyright y disclaimer */
+.footer-copyright {
+    max-width: 1400px;
+    /* max-width: 1400px ancho máximo */
+    margin: 0 auto;
+    /* margin: 0 auto centra */
+    text-align: center;
+    /* text-align: center centra */
+    font-size: 12px;
+    /* font-size: 12px muy pequeño */
+    color: #999999;
+    /* color: #999999 gris más oscuro */
+}
+
+.footer-copyright a {
+    color: #82FDEE;
+    /* color: #82FDEE cian turquesa */
+    text-decoration: none;
+    /* text-decoration: none sin subrayado */
+}
+
+.footer-copyright a:hover {
+    text-decoration: underline;
+    /* text-decoration: underline subraya al pasar mouse */
+}
+
+/* ========================================
+   ANIMACIONES PERSONALIZADAS
+   ======================================== */
+
+/* Entrada suave desde arriba */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        /* opacity: 0 invisible */
+        transform: translateY(-30px);
+        /* transform: translateY(-30px) viene desde arriba */
+    }
+    to {
+        opacity: 1;
+        /* opacity: 1 visible */
+        transform: translateY(0);
+        /* transform: translateY(0) posición final */
+    }
+}
+
+/* Entrada suave desde abajo */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        /* opacity: 0 invisible */
+        transform: translateY(30px);
+        /* transform: translateY(30px) viene desde abajo */
+    }
+    to {
+        opacity: 1;
+        /* opacity: 1 visible */
+        transform: translateY(0);
+        /* transform: translateY(0) posición final */
+    }
+}
+
+/* Entrada desde la derecha */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        /* opacity: 0 invisible */
+        transform: translateX(50px);
+        /* transform: translateX(50px) viene desde la derecha */
+    }
+    to {
+        opacity: 1;
+        /* opacity: 1 visible */
+        transform: translateX(0);
+        /* transform: translateX(0) posición final */
+    }
+}
+
+/* ========================================
+   RESPONSIVIDAD - DISEÑO MÓVIL
+   ======================================== */
+
+/* Tablets (hasta 768px) */
+@media (max-width: 768px) {
+    /* Navbar en tablets */
+    .navbar-contenedor {
+        padding: 0 20px;
+        /* padding: Reduce a 20px */
+        height: 60px;
+        /* height: 60px más compacta */
+    }
+
+    .navbar-logo h1 {
+        font-size: 20px;
+        /* font-size: Más pequeño */
+    }
+
+    .navbar-enlaces {
+        gap: 20px;
+        /* gap: Más juntos */
+    }
+
+    .navbar-enlaces a {
+        font-size: 12px;
+        /* font-size: Más pequeño */
+    }
+
+    .navbar-btn-contacto {
+        padding: 10px 16px;
+        /* padding: Más compacto */
+        font-size: 12px;
+        /* font-size: Más pequeño */
+    }
+
+    /* Hero en tablets */
+    .hero {
+        height: 80vh;
+        /* height: Menos altura */
+        margin-top: 60px;
+        /* margin-top: Ajusta a navbar reducida */
+    }
+
+    .hero-titulo {
+        font-size: 48px;
+        /* font-size: Más pequeño */
+    }
+
+    .hero-subtitulo {
+        font-size: 16px;
+        /* font-size: Más pequeño */
+    }
+
+    /* Buscador en tablets */
+    .buscador-filtros {
+        grid-template-columns: repeat(2, 1fr);
+        /* grid-template-columns: 2 columnas */
+    }
+
+    /* Catálogo en tablets */
+    .catalogo-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* grid-template-columns: 2 columnas */
+        gap: 20px;
+        /* gap: Menos espacio */
+    }
+
+    /* Blog en tablets */
+    .blog-grid {
+        grid-template-columns: 1fr;
+        /* grid-template-columns: 1 columna */
+    }
+
+    /* Contacto en tablets */
+    .contacto-grid {
+        grid-template-columns: 1fr;
+        /* grid-template-columns: 1 columna */
+        gap: 30px;
+        /* gap: Menos espacio */
+    }
+
+    /* Footer en tablets */
+    .footer-contenedor {
+        grid-template-columns: repeat(2, 1fr);
+        /* grid-template-columns: 2 columnas */
+        gap: 30px;
+        /* gap: Menos espacio */
+    }
+}
+
+/* Móviles (hasta 480px) */
+@media (max-width: 480px) {
+    /* Body en móviles */
+    body {
+        font-size: 14px;
+        /* font-size: Más pequeño en general */
+    }
+
+    /* Navbar en móviles */
+    .navbar-contenedor {
+        padding: 0 15px;
+        /* padding: Muy compacto */
+        height: 50px;
+        /* height: Muy compacta */
+        flex-wrap: wrap;
+        /* flex-wrap: wrap cuando sea necesario */
+    }
+
+    .navbar-logo h1 {
+        font-size: 18px;
+        /* font-size: Muy pequeño */
+    }
+
+    .navbar-enlaces {
+        display: none;
+        /* display: none oculta los enlaces en móviles (puedes mostrar un menú hamburguesa aquí) */
+    }
+
+    /* Hero en móviles */
+    .hero {
+        height: 70vh;
+        /* height: Menos altura */
+        margin-top: 50px;
+        /* margin-top: Ajusta a navbar reducida */
+    }
+
+    .hero-titulo {
+        font-size: 36px;
+        /* font-size: Mucho más pequeño */
+    }
+
+    .hero-subtitulo {
+        font-size: 14px;
+        /* font-size: Más pequeño */
+        max-width: 90%;
+        /* max-width: Más estrecho */
+    }
+
+    .hero-btn-cta {
+        padding: 12px 24px;
+        /* padding: Más compacto */
+        font-size: 14px;
+        /* font-size: Más pequeño */
+    }
+
+    /* Badge en móviles */
+    .badge-urgencia {
+        top: 80px;
+        /* top: Más cerca de navbar */
+        right: 15px;
+        /* right: Más cerca del borde */
+        font-size: 11px;
+        /* font-size: Muy pequeño */
+        padding: 10px 12px;
+        /* padding: Más compacto */
+    }
+
+    /* Buscador en móviles */
+    .buscador-seccion {
+        padding: 40px 20px;
+        /* padding: Menos */
+        margin-top: -50px;
+        /* margin-top: Ajusta con hero */
+    }
+
+    .buscador-titulo {
+        font-size: 22px;
+        /* font-size: Más pequeño */
+    }
+
+    .buscador-filtros {
+        grid-template-columns: 1fr;
+        /* grid-template-columns: 1 columna */
+        gap: 15px;
+        /* gap: Menos espacio */
+    }
+
+    .buscador-btn {
+        align-self: stretch;
+        /* align-self: stretch ocupa todo el ancho */
+    }
+
+    /* Provincias en móviles */
+    .buscador-provincias-scroll {
+        gap: 8px;
+        /* gap: Menos espacio */
+    }
+
+    .provincia-btn {
+        padding: 8px 16px;
+        /* padding: Más compacto */
+        font-size: 12px;
+        /* font-size: Más pequeño */
+    }
+
+    /* Secciones en móviles */
+    .catalogo-seccion,
+    .blog-seccion,
+    .nosotros-seccion,
+    .contacto-seccion {
+        padding: 50px 20px;
+        /* padding: Menos */
+    }
+
+    .seccion-titulo {
+        font-size: 28px;
+        /* font-size: Más pequeño */
+        margin-bottom: 30px;
+        /* margin-bottom: Menos */
+    }
+
+    /* Tarjetas en móviles */
+    .catalogo-grid,
+    .blog-grid,
+    .detalle-layout,
+    .detalle-extra-grid,
+    .detalle-main-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjeta-imagen-contenedor {
+        height: 200px;
+        /* height: Menos alto */
+    }
+
+    .tarjeta-contenido {
+        padding: 20px;
+        /* padding: Menos */
+    }
+
+    /* Beneficios en móviles */
+    .beneficios-grid {
+        grid-template-columns: 1fr;
+        /* grid-template-columns: 1 columna */
+        gap: 20px;
+        /* gap: Menos espacio */
+    }
+
+    .beneficio-tarjeta {
+        padding: 20px;
+        /* padding: Menos */
+    }
+
+    /* Contacto en móviles */
+    .contacto-grid {
+        grid-template-columns: 1fr;
+        /* grid-template-columns: 1 columna */
+        gap: 20px;
+        /* gap: Menos espacio */
+    }
+
+    .contacto-formulario,
+    .contacto-info {
+        padding: 20px;
+        /* padding: Menos */
+    }
+
+    /* Footer en móviles */
+    .footer {
+        padding: 40px 20px 20px;
+        /* padding: Menos */
+    }
+
+    .footer-contenedor {
+        grid-template-columns: 1fr;
+        /* grid-template-columns: 1 columna */
+        gap: 25px;
+        /* gap: Menos espacio */
+        margin-bottom: 25px;
+        /* margin-bottom: Menos */
+    }
+
+    .footer-copyright {
+        font-size: 11px;
+        /* font-size: Muy pequeño */
+    }
+}
